@@ -1,0 +1,472 @@
+html,
+body {
+	scroll-behavior: smooth;
+}
+
+section.sec-one{
+	padding: 80px 30px 30px 30px;
+	box-sizing: border-box;
+}
+
+.sapaKalender,
+.KateKale,
+.NtblKalender{
+	margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.NtblKalender{
+	padding: 20px 20px 0px 20px;
+}
+
+.KateKale h1,
+.KateKale h4,
+.NtblKalender h1{
+	color: white;
+	text-transform: capitalize;
+	text-shadow: 0 0 4px black;
+}
+
+.sapa1,
+.NamaTbl{
+	font-family: 'Merienda One', cursive;
+	color: white;
+	text-transform: capitalize;
+	text-shadow: 0 0 2px black;
+}
+.sapa2{
+	color: white;
+	font-family: 'Indie Flower', cursive;
+	letter-spacing: 1px;
+	text-shadow: 0 0 4px black;
+}
+
+.kalender {
+	background-color: rgb(245, 213, 35);
+	border-top: 14px solid rgb(255, 187, 0);
+	width: 130px;
+	height: 150px;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 8px 8px 4px -1px rgba(0, 0, 0, 0.8);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+.kalender p.k1 {
+	font-family: 'Permanent Marker', cursive;
+	font-size: 60px;
+}
+.kalender p.k2 {
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 1px;
+}
+
+.wrapEdit{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+a.hrefEdit{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	margin-bottom: 10px;
+	width: 30%;
+	height: 200px;
+	border-radius: 6px;
+}
+a.kritik{
+	color: white;
+	background-color: rgba(227, 52, 47, 0.8);
+}
+a.kritik:hover{
+	background-color: #e3342f; 
+}
+a.admin{
+	color: white;
+	background-color: rgba(246, 153, 63, 0.8); 
+}
+a.admin:hover{
+	background-color: #f6993f; 
+}
+a.admin{
+	color: white;
+	background-color: rgba(246, 153, 63, 0.8); 
+}
+a.admin:hover{
+	background-color: #f6993f; 
+}
+a.ebook{
+	color: white;
+	background-color: rgba(56, 193, 114, 0.8) ; 
+}
+a.ebook:hover{
+	background-color: #38c172 ; 
+}
+
+#f6993f 
+#divSearchIndex,
+#divSearchKateGori {
+	width: 400px;
+	margin: 0px auto;
+	overflow: visible;
+}
+#formSearchIndex,
+#formSearchKateGori,
+#SearchAdmin,
+#SearchEbook{
+	border-radius: 20px;
+	padding-left: 14px;
+}
+
+.container-lemari {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 12px 0px 70px 0px;
+	width: 100%;
+	border-radius: 4px;
+	box-sizing: border-box;
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(auto-fill,160px);
+	grid-gap: 10px;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+}
+
+.lemariDownload {
+	background-color: rgba(255, 255, 255, .5);
+	margin: 20px auto;
+	padding: 24px;
+	width: 70%;
+	height: 650px;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+}
+.kotakAtas {
+	text-transform: capitalize;
+	font-family: arial;
+	display: flex;
+}
+.kotakAtas img {
+	margin: 0px 20px 20px 0px;
+}
+.kotakBawah {
+	background-color: rgba(255, 255, 255, .8);
+	margin-top: 20px;
+	padding: 12px;
+	text-align: justify;
+	font-family: 'Roboto Mono', monospace;
+	border-radius: 4px;
+	height: 300px;
+	overflow: auto;
+}
+.kotakBawah h4 {
+	text-align: center;
+}
+tr,
+td {
+	padding: 8px 10px;
+}
+.lemariDownload a {
+	margin: 30px auto;
+}
+
+#MyCard img{
+	width: 100%;
+	height: 100%;
+}
+#MyCard {
+	background-color: salmon;
+	height: 200px;
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	text-decoration: none;
+	transition: all 0.3s;
+	border-radius: 8px;
+	overflow: hidden;
+}
+#MyCard:hover {
+	transform: scale(1.1);
+}
+
+#MyCard:active {
+	transform: translateY(10px);
+}
+.pagination {
+	position: absolute;
+	bottom: 0;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	width: 100%;
+	padding: 20px 0 0 0;
+}
+footer h3 {
+	text-align: center;
+	margin-bottom: 40px;
+	font-family: 'Oswald', sans-serif;
+}
+footer .footer-two {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 10%, black 98%);
+	margin-top: 20px;
+	padding: 16px;
+	display: flex;
+	font-family: 'Roboto Mono', monospace;
+	justify-content: space-between;
+}
+
+footer.footerDownload,
+footer.footerLogin,
+footer.footerAdmin,
+footer.footerCrud {
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 10%, black 98%);
+	padding: 16px;
+	margin-top: 38px;
+	color: white;
+	font-family: 'Roboto Mono', monospace;
+	text-align: center;
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+footer.footerDownload span:nth-child(2),
+footer.footerLogin span:nth-child(2),
+footer.footerAdmin span:nth-child(2),
+footer.footerCrud span:nth-child(2){
+	padding-top: 6px;
+}
+
+footer.footerLogin,
+footer.footerAdmin,
+footer.footerCrud{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.form-login{
+	background-color: rgba(214, 212, 175, 0.7);
+	padding: 20px;
+	width: 320px;
+	height: 270px;
+	border-radius: 6px;
+}
+
+.form-login form{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.fotoadmin{
+	width: 100px;
+	border-radius: 6px;
+	overflow: hidden;
+	border: 3px solid rgb(172, 172, 172);
+}
+
+.formEditAdmin{
+    background-color: rgba(255, 255, 255, 0.5);
+	padding: 14px;
+	box-sizing: border-box;
+    width: 300px;
+    height: 480px;
+}
+.formEditEbook {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    padding: 20px;
+    width: 100%;
+}
+.peraturan {
+    background-color: white;
+    border: 2px solid red;
+    padding: 6px;
+    border-radius: 4px;
+    color: red;
+    position: absolute;
+    top: -600px;
+    right: 20px;
+    left: 20px;
+    transition: all 0.5s;
+}
+.rise {
+    top: 70px;
+}
+.peraturan .closee {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    background-color: white;
+    border: 2px solid red;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+}
+.peraturan .closee:hover {
+    color: white;
+    background-color: red;
+}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+@media(max-width: 720px) {
+	#divSearchIndex {
+		width: 100%;
+		margin-top: 50px;
+	}
+	
+	h1.sapa1,
+	.NamaTbl{
+		font-size: 26px;
+	}
+
+	h4.sapa2 {
+		font-size: 18px;
+	}
+
+	.fotoadmin{
+		width: 70px;
+	}
+
+	.KateKale h1 {
+		font-size: 1.2em;
+	}
+
+	.KateKale h4 {
+		font-size: 0.9em;
+	}
+
+	div.kalender {
+		width: 100px;
+		height: 110px;
+	}
+
+	div.kalender p.k1 {
+		font-size: 44px;
+	}
+
+	div.kalender p.k2 {
+		font-size: 14px;
+		margin-top: -16px;
+	}
+
+	.container-lemari {
+		grid-template-columns: repeat(auto-fill,100px);
+		padding: 12px 0px 70px 0px;
+		grid-gap: 10px;
+		justify-content: center;
+		justify-items: center;
+		align-content: start;
+	}
+
+	#MyCard {
+		height: 140px;
+	}
+
+	.lemariDownload {
+		width: 90%;
+		height: auto;
+		min-width: 0px;
+	}
+	.kotakAtas img {
+		margin-right: 0;
+	}
+
+	.lemari {
+		height: auto;
+	}
+
+	.kotakAtas {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.fotoadmin{
+		width: 70px;
+	}
+
+	footer .footer-two {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	footer.footerDownload,
+	footer.footerLogin,
+	footer.footerAdmin,
+	footer.footerCrud{
+		height: auto;
+		flex-direction: column;
+		font-size: 12px;
+	}
+}
+
+@media(max-width: 592px) {
+	h1.sapa1,
+	.NamaTbl{
+		font-size: 18px;
+	}
+
+	h4.sapa2 {
+		font-size: 15px;
+	}
+
+	.fotoadmin{
+		width: 50px;
+	}
+
+	div.kalender {
+		width: 80px;
+		height: 90px;
+	}
+
+	div.kalender p.k1 {
+		font-size: 34px;
+	}
+
+	div.kalender p.k2 {
+		font-size: 10px;
+		margin-top: -18px;
+	}
+
+	.container-lemari {
+		grid-template-columns: repeat(auto-fill,80px);
+	}
+
+	#MyCard {
+		height: 120px;
+	}
+
+	.wrapEdit{
+		flex-direction: column;
+		width: 100%;
+	}
+
+	a.hrefEdit{
+		width: 100%;
+	}
+
+	footer .footer-two {
+		font-size: 12px;
+	}
+	footer.footerAdmin{
+		position: inherit;
+	}
+}

@@ -1,5 +1,9 @@
 <?php
-	$conn = mysqli_connect("localhost","root","","db_rumahebook");
+	//  ---- Development Connection ----
+	// $conn = mysqli_connect("localhost","root","","db_rumahebook");
+	
+	//  ---- Remote Connection ----
+	$conn = mysqli_connect("remotemysql.com","NFL077dXS9","cmeFEouQHi","NFL077dXS9");
 	
 	// --------------------
 	// 		get data

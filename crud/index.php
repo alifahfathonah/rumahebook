@@ -343,11 +343,13 @@
 	</div>
 
 	<div class="container-fluid">
-		<form>
-			<div class="form-group w-100">
-				<input type="text" class="form-control w-100" id="SearchAdmin" placeholder="&#xF002; search" style="font-family:Arial, FontAwesome;">
-			</div>
-		</form>
+		<div id="divSearchAdmin">
+			<form>
+				<div class="form-group w-100">
+					<input type="text" class="form-control w-100" id="SearchAdmin" placeholder="&#xF002; search" style="font-family:Arial, FontAwesome;">
+				</div>
+			</form>
+		</div>
 		<div id="div-tabel-admin" style="overflow: auto;">
 		<table class="table table-bordered table-hover">
 			<thead class="thead-dark text-center">
@@ -462,11 +464,13 @@
 	</div>
 
 	<div class="container-fluid">
-		<form>
-			<div class="form-group w-100">
-				<input type="text" class="form-control w-100" id="SearchEbook" placeholder="&#xF002; search" style="font-family:Arial, FontAwesome;">
-			</div>
-		</form>
+		<div id="divSearchEbook">
+			<form>
+				<div class="form-group w-100">
+					<input type="text" class="form-control w-100" id="SearchEbook" placeholder="&#xF002; search" style="font-family:Arial, FontAwesome;">
+				</div>
+			</form>
+		</div>
 		<div id="div-tabel-ebook" style="overflow: auto;">
 			<table class="table table-bordered table-hover">
 				<thead class="thead-dark text-center">

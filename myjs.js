@@ -93,3 +93,5 @@ if(peraturan){
         peraturan.classList.remove('rise');
     })
 }
+
+($('[data-toggle="tooltip"]')) ? $('[data-toggle="tooltip"]').tooltip() : ''; 

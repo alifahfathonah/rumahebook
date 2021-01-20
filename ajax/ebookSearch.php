@@ -22,7 +22,7 @@
 	Response Text
 ------------------- -->
 <?php foreach($dataebook1 as $dataebook2) : ?>
-	<a href="download/?idbuku=<?= $dataebook2['id']; ?>" id="MyCard" title="<?= $dataebook2['judulbuku']; ?>">
+	<a href="download/?idbuku=<?= $dataebook2['id']; ?>" id="MyCard" title="<?= $dataebook2['judulbuku']; ?>" data-toggle="tooltip">
 		<img src="asset/imgEbook/<?= $dataebook2['fotobuku']; ?>">
 	</a>
 <?php endforeach; ?>

@@ -34,7 +34,7 @@
 	// ----------------------------
 	// 		Get Data Ebook
 	// ----------------------------
-	$jmlDataPerhalaman = 6;
+	$jmlDataPerhalaman = 10;
 	$totalDataEbook = count(tampil("SELECT*FROM ebook"));
 	$jmlHalaman = ceil($totalDataEbook / $jmlDataPerhalaman);
 	if(isset($_GET['halaman'])){
@@ -191,7 +191,7 @@
 		<div class="container-lemari" id="lemariIndex">
 			
 			<?php foreach($dataebook1 as $dataebook2) : ?>
-				<a href="download/?idbuku=<?= $dataebook2['id']; ?>" id="MyCard" title="<?= $dataebook2['judulbuku']; ?>">
+				<a href="download/?idbuku=<?= $dataebook2['id']; ?>" id="MyCard" title="<?= $dataebook2['judulbuku']; ?>" data-toggle="tooltip">
 					<img src="asset/imgEbook/<?= $dataebook2['fotobuku']; ?>">
 				</a>
 			<?php endforeach; ?>

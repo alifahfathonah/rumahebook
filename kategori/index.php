@@ -186,7 +186,7 @@
 		
 		
 		<?php foreach($dataebook1 as $dataebook2) : ?>
-		<a href="../download/?idbuku=<?= $dataebook2['id']; ?>" id="MyCard" title="<?= $dataebook2['judulbuku']; ?>">
+		<a href="../download/?idbuku=<?= $dataebook2['id']; ?>" id="MyCard" title="<?= $dataebook2['judulbuku']; ?>" data-toggle="tooltip">
 			<img src="../asset/imgEbook/<?= $dataebook2['fotobuku']; ?>" width="100%" height="100%">
 		</a>
 		<?php endforeach; ?>

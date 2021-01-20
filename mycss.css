@@ -109,9 +109,10 @@ a.ebook:hover{
 	background-color: #38c172 ; 
 }
 
-#f6993f 
 #divSearchIndex,
-#divSearchKateGori {
+#divSearchKateGori,
+#divSearchAdmin,
+#divSearchEbook {
 	width: 400px;
 	margin: 0px auto;
 	overflow: visible;
@@ -132,7 +133,7 @@ a.ebook:hover{
 	box-sizing: border-box;
 	position: relative;
 	display: grid;
-	grid-template-columns: repeat(auto-fill,160px);
+	grid-template-columns: repeat(auto-fill,140px);
 	grid-gap: 10px;
 	justify-content: center;
 	justify-items: center;
@@ -194,7 +195,7 @@ td {
 	overflow: hidden;
 }
 #MyCard:hover {
-	transform: scale(1.1);
+	/* transform: scale(1.1); */
 }
 
 #MyCard:active {
@@ -300,7 +301,7 @@ footer.footerCrud{
     border-radius: 4px;
     color: red;
     position: absolute;
-    top: -600px;
+    top: -60px;
     right: 20px;
     left: 20px;
     transition: all 0.5s;

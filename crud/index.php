@@ -205,7 +205,7 @@
 		<button type="button" class="close" data-dismiss="alert">
 			&times;
 		</button>
-		<strong>Gagal!</strong> Ukuran Ebook anda lebih dari 100 Mb . . .
+		<strong>Gagal!</strong> Ukuran Ebook anda lebih dari 10 Mb . . .
 	</div>
 <?php endif; ?>
 <!-- </Flash Message> -->

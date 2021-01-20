@@ -99,8 +99,8 @@
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" href="" style="font-family: 'Oswald', sans-serif;">
-			<img src="asset/imgBground/logo2.png" alt="Logo" style="width:30px;">
-			RumahEbook
+			<!-- <img src="asset/imgBground/logo2.png" alt="Logo" style="width:30px;">
+			RumahEbook -->
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -133,9 +133,9 @@
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="logout.php">
+					<!-- <a class="nav-link" href="logout.php">
 						<i class="fas fa-sign-out-alt" style="font-size: 20px;"> Logout </i> 
-					</a>
+					</a> -->
 				</li>
 			</ul>
 		</div>

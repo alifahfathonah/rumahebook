@@ -1,9 +1,9 @@
 <?php
 	//  ---- Development Connection ----
-	// $conn = mysqli_connect("localhost","root","","db_rumahebook");
+	$conn = mysqli_connect("localhost","root","","db_rumahebook");
 	
 	//  ---- Remote Connection ----
-	$conn = mysqli_connect("remotemysql.com","NFL077dXS9","cmeFEouQHi","NFL077dXS9");
+	// $conn = mysqli_connect("remotemysql.com","NFL077dXS9","MWqUSK2Rwz","NFL077dXS9");
 	
 	// --------------------
 	// 		get data
@@ -149,7 +149,7 @@
 			return false;
 		}
 
-		if($ukuranfoto > 1000000)
+		if($ukuranfoto > 1048576)
 		{
 			return 'oversize';
 		}
@@ -280,7 +280,7 @@
 			return 'bukanfoto';
 		}
 
-		if($ukuranFotoBuku > 1000000)
+		if($ukuranFotoBuku > 1048576)
 		{
 			return 'oversize';
 		}
@@ -313,7 +313,7 @@
 			return false;
 		}
 
-		if($ukuranFileEbook > 100000000)
+		if($ukuranFileEbook > 10485760)
 		{
 			return 'bukuoversize';
 		}

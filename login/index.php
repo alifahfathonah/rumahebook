@@ -5,34 +5,7 @@
 	// ----------------------------
 	// 		Waktu&Tanggal
 	// ----------------------------
-	date_default_timezone_set('Asia/Jakarta');
-	$tglKritik    = date('l, j-n-Y',mktime());
-	$kalender1    = date('j', mktime());
-	$kalender2    = date('M, Y', mktime());
-	$batas1       = date('j-n-Y',mktime()+86400);
-	$explode      = explode('-', $batas1);
-	$m            = $explode[1];
-	$d            = $explode[0];
-	$y            = $explode[2];
-	$waktuSaatIni = date(mktime());
-	$batas2       = date(mktime(0,0,0,$m,$d,$y));
-	$selisih      = $batas2 - $waktuSaatIni;
-	if($selisih <= 86400 && $selisih>= 50400){
-		$waktu = 'pagi';
-	}
-	else if($selisih <= 50400 && $selisih>= 32400){
-		$waktu = 'siang';
-	}
-	else if($selisih <= 32400 && $selisih>= 21600){
-		$waktu = 'sore';
-	}
-	else{
-		$waktu = 'malam';
-	}
-	$bgBesar  = $waktu;
-	$bgBesar .= '.jpg';
-	$bgKecil  = $waktu;
-	$bgKecil .= '2.jpg';
+	$getWaktu = getWaktu();
 
 	// ----------------------------
 	// 			Login
@@ -71,8 +44,6 @@
 			$userNameSalah = true;
 		}
 	}
-	
-	// var_dump($_SESSION['admin']);
 
 	// ----------------------------
 	// 		Remember Me 
@@ -102,79 +73,87 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="../asset/imgBground/logo2.png" type="image/x-icon">
 	<title>Selamat Datang!</title>
-
+	
 	<!------------------------------------------- CSS --------------------------------------------->
-	<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat+Subrayada&family=Roboto+Mono&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="../mycss.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	<style>
 		body{
-			background-image     : url(../asset/imgBground/<?= $bgBesar; ?>);
+			background-image     : url(../asset/imgBground/<?= $getWaktu['bgBesar']; ?>);
 			background-size      : cover;
 			background-repeat    : no-repeat;
 			background-attachment: fixed;
 		}
+		footer{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 		/*///////////////////////////////////////////////////////////////////////////////////////////////*/
-		@media(max-width: 710px){
+		@media(max-width: 720px){
 			body{
-				background-image     : url(../asset/imgBground/<?= $bgKecil; ?>);
+				background-image     : url(../asset/imgBground/<?= $getWaktu['bgKecil']; ?>);
 				background-size      : cover;
 				background-repeat    : no-repeat;
 				background-attachment: fixed;
+			}
+			footer{
+				flex-direction: column;
+			}
+			footer span{
+				margin-bottom: 5px;
 			}
 		}
 	</style>
 </head>
 <body>
 
-<section class="sec-login d-flex align-items-center justify-content-center">
-	<!-- <Form> -->
-	<div class="form-login" id="form-login">
-		<form method="post">
-			<div class="form-group">
-				<input type="text" name="usernameL" class="form-control no-border" placeholder="Enter Nickname" id="usernameL" required>
-				<?php if(isset($userNameSalah)) : ?>
-				<small class="text-danger" style="position: absolute;">username salah/tidak terdaftar</small>
-				<?php endif; ?>
-			</div>
-			<div class="form-group" id="group-password">
-				<input type="password" name="passwordL" class="form-control no-border mt-2" placeholder="Enter password" id="passwordL" required>
-			<?php if(isset($passwordSalah)) : ?>
-				<small class="text-danger" style="position: absolute;">password salah</small>
-			<?php endif; ?>
-			</div>
-			<div class="form-group form-check">
-				<label class="form-check-label">
-					<input class="form-check-input mt-2" name="remember" type="checkbox"> Remember me
-				</label>
-			</div>
-			<button type="submit" name="login" class="btn btn-primary w-100" id="bottom">Login</button>
-		</form>
-	</div>
-	<!-- </Form> -->
+	<!-- main content -->
+	<div class="position-relative container-fluid p-0 vh-100 d-flex justify-content-center align-items-center">
+		
+		<!-- <Form> -->
+		<div class="container-fluid row px-0 d-flex justify-content-center">
 
+			<div class="col-sm-6 col-md-5 col-lg-4 col-xl-3"> <!-- " default px-3 " -->
+
+				<div class="p-4 rounded-lg" style="background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
+					<h2 class="font-weight-bolder text-center" style="color: rgba(0,0,0,0.7);">Login</h1>
+					<form method="post" class="mt-4">
+						<div class="form-group">
+							<input type="text" name="usernameL" class="form-control" placeholder="Enter Nickname" id="usernameL" required autocomplete="off">
+							<?php if(isset($userNameSalah)) : ?>
+								<small style="color: red; position: absolute; letter-spacing: 1px">username salah/tidak terdaftar</small>
+							<?php endif; ?>
+						</div>
+						<div class="form-group" id="group-password">
+							<input type="password" name="passwordL" class="form-control mt-4" placeholder="Enter password" id="passwordL" required>
+							<?php if(isset($passwordSalah)) : ?>
+								<small style="color: red; position: absolute; letter-spacing: 1px">password salah</small>
+							<?php endif; ?>
+						</div>
+						<div class="form-check mt-4">
+							<label class="form-check-label">
+								<input class="form-check-input" name="remember" type="checkbox"> Remember me
+							</label>
+						</div>
+						<button type="submit" name="login" class="btn btn-primary w-100 mt-4" style="letter-spacing: 2px" id="bottom">Login</button>
+					</form>
+				</div>
+
+			</div>
+
+		</div><!-- </Form> -->				
+
+
+	</div><!-- main content -->
+	
 	<!-- <footer> -->
-	<footer class="footerLogin">
-		<span>
-			Made With
-			<i class="fas fa-heart" style="color: red;"></i>
-			by 
-			<a href="https://www.instagram.com/el.koro_/" target="_blank" style="text-decoration: none; font-weight: 500;">
-				<i class="fas fa-at"></i>Bagaskoro
-			</a>
+	<footer class="fixed-bottom px-2" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 10%, black 98%);"><!-- " default pb-2 " -->
+		<span class="text-light">Made With <img src="../asset/imgBground/love.svg" width="30px" style="transform: translateY(-2px);"> by <a href="https://www.instagram.com/el.koro_/" target="_blank" style="text-decoration: none;"><i class="fas fa-at"></i>Bagaskoro</a>
 		</span>
-		<span>
-			<i class="fas fa-map-marker-alt"></i> South Tangerang, Indonesia
-		</span>
+		<span class="text-light"><img src="../asset/imgBground/pin.svg" width="30px" style="transform: translateY(-4px);"> South Tangerang, Indonesia</span>
 	</footer>
 	<!-- </footer> -->
-</section>
-	
+
 	<!---------------------- js ---------------------->
-	<script src="https://kit.fontawesome.com/6357e7545a.js" crossorigin="anonymous"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<script src="../myjs.js"></script>
 	</body>
 </html>

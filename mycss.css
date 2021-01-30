@@ -378,10 +378,6 @@ footer.footerCrud{
 		align-content: start;
 	}
 
-	#MyCard {
-		height: 140px;
-	}
-
 	.lemariDownload {
 		width: 90%;
 		height: auto;
@@ -449,10 +445,6 @@ footer.footerCrud{
 
 	.container-lemari {
 		grid-template-columns: repeat(auto-fill,80px);
-	}
-
-	#MyCard {
-		height: 120px;
 	}
 
 	.wrapEdit{

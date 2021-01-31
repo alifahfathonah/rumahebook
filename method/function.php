@@ -9,8 +9,7 @@
 	// 		Waktu&Tanggal
 	// ----------------------------
 	function getWaktu(){
-		date_default_timezone_set('Asia/Jakarta');
-		$date    = new DateTime();
+		$date    = new DateTime(null,new DateTimeZone('Asia/Jakarta'));
 		$tglKritik    = $date->format('Y-m-d|H:i:s');
 		$kalender1    = $date->format('d');
 		$kalender2    = $date->format('M, Y');

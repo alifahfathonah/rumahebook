@@ -121,6 +121,10 @@
 </head>
 <body>
 
+	<div id="loader" class="d-flex justify-content-center align-items-center" style="background-color: white;position:absolute;top:0;bottom:0;left:0;right:0; z-index:1040;">
+		<img src="asset/imgBground/loading.svg">
+	</div>
+
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-md fixed-top px-3 py-2" style="background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
 		<a class="navbar-brand font-weight-bold" href="" style="font-family: 'Oswald', sans-serif; color: #<?= $warna; ?>;-webkit-text-stroke-width: 0.02vw;-webkit-text-stroke-color: #<?= $stroke; ?>;">
@@ -169,8 +173,19 @@
 	</nav>
 	<!-- </NAVBAR> -->
 
+	<!-- Flash Message -->
+	<?php if(isset($terkirim)) : ?>
+	<div class="alert alert-success alert-dismissible" style="position: fixed; top:56px; left:0 ; right: 0; z-index: 10000;">
+		<button type="button" class="close" data-dismiss="alert">
+			&times;
+		</button>
+		<strong>Success!</strong> Pesan Terkirim . . .
+	</div>
+	<?php endif; ?>
+	<!-- </info pesan terkirim> -->
+
 	<!-- main-content -->
-	<div class="position-relative container-fluid vh-100" style="padding: 60px 0 0 0;">
+	<div class="position-relative container-fluid" style="padding: 60px 0 0 0;min-height:100vh;" id="containerMainContent">
 
 		<!-- header -->
 		<div id="header" class="container-fluid m-0 pt-4 pl-4 pr-4 pb-4" style="display: flex;justify-content: space-between;align-items: center;">
@@ -192,13 +207,13 @@
 		</div><!-- header -->
 
 		<!-- card -->
-		<div class="container-fluid m-0 px-4" style="min-height: 62%;" id="containerCard">
+		<div class="container-fluid m-0 px-4" id="containerCard" style="padding-bottom: 32px;">
 			<div class="row m-0 d-flex justify-content-center" id="rowSearch">
 				<div class="col-md-6 col-lg-6 col-xl-4 p-0">
 					<input type="text" class="form-control w-100" id="formSearchEbook" placeholder="&#xF002; search" style="font-family:Arial, FontAwesome; border-radius:20px;">
 				</div>
 			</div>
-			<div class="position-relative row mx-0 mt-3 pt-3 px-2 rounded-lg d-flex align-items-start flex-wrap" id="rowCard" style="background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
+			<div class="position-relative row mx-0 mt-3 pt-3 px-2 rounded-lg d-flex align-items-start flex-wrap" id="rowCard" style=" background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
 				
 				<!-- ebooks -->
 				<?php foreach($dataebook1 as $dataebook2) : ?>
@@ -209,74 +224,75 @@
 
 				<!-- pagination -->
 				<div class="d-flex justify-content-center" style="position: absolute;bottom: -18px;left:0;right:0;">
-				<ul class="pagination m-0">
-					<?php if($halamanAktiv > 1) : ?>
-					<li class="page-item">
-						<a class="page-link" href="?halaman=<?= $halamanAktiv - 1; ?>" aria-label="Previous">
-							<span aria-hidden="true">&laquo;</span>
-						</a>
-					</li>
-					<?php endif; ?>
-
-					<?php for($i=1; $i<=$jmlHalaman; $i++) : ?>
-						<?php if($i == $halamanAktiv) : ?>
-						<li class="page-item active" aria-current="page">
-							<a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+					<ul class="pagination m-0">
+						<?php if($halamanAktiv > 1) : ?>
+						<li class="page-item">
+							<a class="page-link" href="?halaman=<?= $halamanAktiv - 1; ?>" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
 						</li>
-						<?php else : ?>
-						<li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
 						<?php endif; ?>
-					<?php endfor; ?>
 
-					<?php if($halamanAktiv < $jmlHalaman) : ?>
-					<li class="page-item">
-						<a class="page-link" href="?halaman=<?= $halamanAktiv + 1; ?>" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-						</a>
-					</li>
-					<?php endif; ?>
-				</ul><!-- pagination -->
-				</div>
+						<?php for($i=1; $i<=$jmlHalaman; $i++) : ?>
+							<?php if($i == $halamanAktiv) : ?>
+							<li class="page-item active" aria-current="page">
+								<a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a>
+							</li>
+							<?php else : ?>
+							<li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+							<?php endif; ?>
+						<?php endfor; ?>
+
+						<?php if($halamanAktiv < $jmlHalaman) : ?>
+						<li class="page-item">
+							<a class="page-link" href="?halaman=<?= $halamanAktiv + 1; ?>" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+						<?php endif; ?>
+					</ul>
+				</div><!-- pagination -->
 
 			</div>
 		</div><!-- card -->
 
+	</div><!-- main-content -->
 
-		<!-- <FOOTOER> -->
-		<div class="position-relative w-full" id="kritiksaran" style="padding: 16px 0px 60px 0px;background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
-			<h4 class="text-light text-center mb-3"><strong>Kritik & Saran</strong></h4>
-			<div class="container-fluid p-4">
-				<form method="post" id="formKritik">
-					<input id="tglKritik" type="hidden" name="tglKritik" value="<?= $tglKritik; ?>">
-					<div class="form-group">
-						<input type="text" class="form-control" name="namaKritik" placeholder="Username">
-					</div>
-					<div class="form-group">
-						<textarea id="pesanKritik" class="form-control" rows="8" name="pesanKritik" required></textarea>
-					</div>
-					<div class="d-flex justify-content-end">
-						<button type="submit" class="btn btn-primary" name="tombolKritik" id="kritik&saran" style="letter-spacing:4px;">
-							<strong>Kirim</strong>
-						</button>
-					</div>
-				</form>
-			</div>
-			
-			<footer class="position-absolute fixed-bottom px-4" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 10%, black 98%);display: flex;align-items: center;justify-content: space-between;">
-				<span class="text-light" style="word-spacing: 2px;">Made With <img src="asset/imgBground/love.svg" width="30px" style="transform: translateY(-2px);"> by <a href="https://www.instagram.com/el.koro_/" target="_blank" style="text-decoration: none; font-weight: 500;"><i class="fas fa-at"></i>Bagaskoro</a>
-				</span>
-				<span class="text-light"><img src="asset/imgBground/pin.svg" width="30px" style="transform: translateY(-4px);">  South Tangerang, Indonesia</span>
-			</footer>
+	<!-- <FOOTOER> -->
+	<div class="position-relative w-full" id="kritiksaran" style="padding: 16px 0px 60px 0px;background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
+		<h4 class="text-light text-center mb-3"><strong>Kritik & Saran</strong></h4>
+		<div class="container-fluid p-4">
+			<form method="post" id="formKritik">
+				<input id="tglKritik" type="hidden" name="tglKritik" value="<?= $getWaktu['tglKritik']; ?>">
+				<div class="form-group">
+					<input type="text" class="form-control" name="namaKritik" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<textarea id="pesanKritik" class="form-control" rows="8" name="pesanKritik" required></textarea>
+				</div>
+				<div class="d-flex justify-content-end">
+					<button type="submit" class="btn btn-primary" name="tombolKritik" id="kritik&saran" style="letter-spacing:4px;">
+						<strong>Kirim</strong>
+					</button>
+				</div>
+			</form>
 		</div>
-		<!-- </FOOTOER> -->
+		
+		<footer class="position-absolute fixed-bottom px-4" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 10%, black 98%);display: flex;align-items: center;justify-content: space-between;">
+			<span class="text-light" style="word-spacing: 2px;">Made With <img src="asset/imgBground/love.svg" width="30px" style="transform: translateY(-2px);"> by <a href="https://www.instagram.com/el.koro_/" target="_blank" style="text-decoration: none; font-weight: 500;"><i class="fas fa-at"></i>Bagaskoro</a>
+			</span>
+			<span class="text-light"><img src="asset/imgBground/pin.svg" width="30px" style="transform: translateY(-4px);">  South Tangerang, Indonesia</span>
+		</footer>
 	</div>
-
-
+	<!-- </FOOTOER> -->
 
 	<!---------------------- js ---------------------->
 	<script src="https://kit.fontawesome.com/6357e7545a.js" crossorigin="anonymous"></script><script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script src="myjs.js"></script>
 	<script>
+		window.addEventListener('load',function(){
+			document.querySelector('div#loader').classList.remove('d-flex');
+			document.querySelector('div#loader').style.display = 'none';
+		})
 		// burger open & close
 		document.querySelector('.navbar-toggler').addEventListener('click',function(){
 			if(!document.querySelector('#burgerOpen').classList.contains('hidden')){
@@ -303,8 +319,8 @@
 			};
 		});
 		// container card height
-		let containerCardHeigh = document.querySelector('#containerCard').clientHeight;
-		document.querySelector('#rowCard').style.minHeight = (containerCardHeigh/1.26)+'px';
+		let containerContentHeigh = document.querySelector('#containerMainContent').clientHeight;
+		document.querySelector('#rowCard').style.minHeight = (containerContentHeigh/2.3)+'px';
 		// search enggine
 		let formSearchEbook = document.querySelector('#formSearchEbook');
 		formSearchEbook.addEventListener('keyup', function () {
@@ -317,6 +333,8 @@
 			xhr.open('GET', 'ajax/ebookSearch.php?key=' + formSearchEbook.value, true);
 			xhr.send();
 		});
+		// tooltip
+		($('[data-toggle="tooltip"]')) ? $('[data-toggle="tooltip"]').tooltip() : ''; 
 	</script>
 </body>
 </html>

@@ -107,6 +107,11 @@
 </head>
 <body>
 
+	<!-- loader -->
+	<div id="loader" class="d-flex justify-content-center align-items-center" style="background-color: white;position:absolute;top:0;bottom:0;left:0;right:0; z-index:1040;">
+		<img src="../asset/imgBground/loading.svg">
+	</div>
+
 	<!-- main content -->
 	<div class="position-relative container-fluid p-0 vh-100 d-flex justify-content-center align-items-center">
 		
@@ -155,5 +160,12 @@
 	<!-- </footer> -->
 
 	<!---------------------- js ---------------------->
+	<script>
+		// loader
+		window.addEventListener('load',function(){
+			document.querySelector('div#loader').classList.remove('d-flex');
+			document.querySelector('div#loader').style.display = 'none';
+		})
+	</script>
 	</body>
 </html>

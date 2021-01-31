@@ -66,11 +66,16 @@
 </head>
 <body>
 
+	<!-- loader -->
+	<div id="loader" class="d-flex justify-content-center align-items-center" style="background-color: white;position:absolute;top:0;bottom:0;left:0;right:0; z-index:1040;">
+		<img src="../asset/imgBground/loading.svg">
+	</div>
+
 	<!-- NAV -->
 	<nav class="navbar px-3" style="background: rgba( 255, 255, 255, 0.25 );box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );backdrop-filter: blur( 4px );-webkit-backdrop-filter: blur( 4px );">
-		<a href="../" class="navbar-brand font-weight-bold btn btn-info">
+		<button onclick="goBack()" class="navbar-brand font-weight-bold btn btn-info">
 			<img src="../asset/imgBground/home.svg" width="28px">
-		</a>
+		</button>
 	</nav><!-- </NAV> -->
 
 	<!-- main-content -->
@@ -114,6 +119,16 @@
 	<!---------------------- js ---------------------->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script>
+		// loader
+		window.addEventListener('load',function(){
+			document.querySelector('div#loader').classList.remove('d-flex');
+			document.querySelector('div#loader').style.display = 'none';
+		})
+		// go back 
+		function goBack() {
+		window.history.back();
+		}
+		// tooltip
 		($('[data-toggle="tooltip"]')) ? $('[data-toggle="tooltip"]').tooltip() : ''; 
 	</script>
 </body>

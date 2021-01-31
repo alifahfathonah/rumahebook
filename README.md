@@ -17,4 +17,5 @@ Live Demo Can access at <a href="http://rumahebook.epizy.com/">http://rumahebook
 <img src="asset/screenshoot/download.png" width="860px" /><br><br>
 <img src="asset/screenshoot/login.png" width="860px" /><br><br>
 <img src="asset/screenshoot/admin.png" width="860px" /><br><br>
-<img src="asset/screenshoot/table.png" width="860px" /><br><br>
+<img src="asset/screenshoot/kritik.png" width="860px" /><br><br>
+<img src="asset/screenshoot/edit.png" width="860px" /><br><br>
